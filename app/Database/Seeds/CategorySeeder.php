@@ -13,7 +13,7 @@ class CategorySeeder extends \CodeIgniter\Database\Seeder
         );*/
 
         // Using Query Builder
-        for ($i=1; $i<=10; $i++) {
+        for ($i=1; $i<=20; $i++) {
 
             $data = [
                 'name' => "Category $i",

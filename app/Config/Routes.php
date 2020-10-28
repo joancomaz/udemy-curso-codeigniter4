@@ -33,10 +33,20 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Home::index');
 //$routes->get('/contacto', 'Home::contacto');
 $routes->get('/contacto/(:any)', 'Home::contacto/$1', ['as' => 'contacto']);
-$routes->get('/movie', 'dashboard/MovieController::index');
-$routes->get('/movie/show', 'dashboard/MovieController::show');
+
 $routes->get('/category', 'dashboard/CategoryController::index');
 $routes->get('/category/show', 'dashboard/CategoryController::show');
+
+$routes->group('admin', function($routes)
+{
+//    $routes->resource('movie');
+//    $routes->get('movie', 'dashboard/MovieController::index');
+//    $routes->get('movie/show', 'dashboard/MovieController::show');
+});
+
+$routes->resource('movie');
+
+
 
 
 /**

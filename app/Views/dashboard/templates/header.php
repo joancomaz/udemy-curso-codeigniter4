@@ -10,3 +10,4 @@
 <body>
     <a href="<?= route_to('contacto', 'Juan') ?>">Contacto</a>
     <h1><?= $title ?></h1>
+<?= view("dashboard/partials/_session") ?>

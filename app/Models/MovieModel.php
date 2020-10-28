@@ -6,7 +6,9 @@ class MovieModel extends Model {
     protected $table = 'movies';
     protected $primaryKey = 'id';
 
-    public function get($id = null) {
+    protected $allowedFields = ['title', 'description', 'category_id'];
+
+    /*public function get($id = null) {
         if ($id === null) {
             return $this->findAll();
         }
@@ -14,5 +16,11 @@ class MovieModel extends Model {
         return $this->asObject()
             ->where(['id' => $id])
             ->first();
+    }*/
+
+    public function getAll() {
+        return $this->asObject()
+            ->select('movies.*, categories.name as category_name')
+            ->join('categories', 'categories.id = movies.category_id');
     }
 }

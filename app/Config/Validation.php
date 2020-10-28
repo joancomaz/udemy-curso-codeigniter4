@@ -33,4 +33,9 @@ class Validation
 	//--------------------------------------------------------------------
 	// Rules
 	//--------------------------------------------------------------------
+    public $movies = [
+        'title' => 'required|min_length[3]|max_length[255]',
+        'description' => 'min_length[3]|max_length[5000]'
+    ];
+
 }

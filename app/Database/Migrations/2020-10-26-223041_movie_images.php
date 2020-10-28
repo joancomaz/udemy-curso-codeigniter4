@@ -2,39 +2,35 @@
 
 use CodeIgniter\Database\Migration;
 
-class Movies extends Migration
+class MovieImages extends Migration
 {
-	public function up()
-	{
+    public function up()
+    {
         $this->forge->addField([
             'id'          => [
                 'type'           => 'INT',
                 'constraint'     => 5,
                 'unsigned'       => true,
-                'auto_increment' => true
+                'auto_increment' => true,
             ],
-            'category_id'          => [
+            'movie_id'          => [
                 'type'           => 'INT',
                 'constraint'     => 5,
                 'unsigned'       => true
             ],
-            'title'       => [
+            'image'       => [
                 'type'           => 'VARCHAR',
-                'constraint'     => '255'
-            ],
-            'description' => [
-                'type'           => 'TEXT',
-                'null'           => true
+                'constraint'     => '100',
             ]
         ]);
         $this->forge->addKey('id', true);
-        $this->forge->createTable('movies');
-	}
+        $this->forge->createTable('movie_images');
+    }
 
-	//--------------------------------------------------------------------
+    //--------------------------------------------------------------------
 
-	public function down()
-	{
-        $this->forge->dropTable('movies');
-	}
+    public function down()
+    {
+        $this->forge->dropTable('movie_images');
+    }
 }
